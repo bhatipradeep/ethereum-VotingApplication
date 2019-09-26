@@ -3,6 +3,7 @@
 App = {
   web3Provider: null,
   contracts: {},
+  Election: null,
   account: '0x0',
   hasVoted: false,
 
