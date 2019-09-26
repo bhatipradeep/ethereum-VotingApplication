@@ -17,6 +17,12 @@ contract Election{
 		addCandidate("Candidate-2");
 
 	}
+	
+	//event
+	event votedEvent (
+        uint indexed _candidateId
+   	 );
+
 
 	function addCandidate(string memory _name) private {
 		candidatesCount++;
@@ -28,6 +34,8 @@ contract Election{
 		require(_id>0 && _id<=candidatesCount);
 		voters[msg.sender] = true;
 		candidates[_id].voteCount++;
+		// trigger voted event
+        	votedEvent(_candidateId);
 	}
 
 
